@@ -50,96 +50,108 @@ $$c=R_{i1}^{0}=R(:,1)=A(:,1)=
     \end{bmatrix}
 \end{equation}$$
 
-    Create the household matrix of 
-    $$H^{(1)}=I-{2\over{V^TV}}VV^T$$
-    where the vector **v** was chosen as
-    $$V=\bar{c}+\Vert c \Vert \bar{e_{1}}$$
-    where
-    $$e_{1}=
-    \begin{equation}
-        \begin{bmatrix}
-        \pm 1\\
-        0\\
-        0\\
-        \vdots\\
-        0\\
-        \end{bmatrix}
-    \end{equation}
-    \\e_{1}=+1 (a_{11}\ge 0)\\
-    e_{1}=-1 (a_{11}< 0)$$
-    <br>
-    Update the next matrix Q and R as
-    
-    $$Q^{(1)}=Q^{(0)}H^{(1)}\\
-    R^{(1)}=H^{(1)}R^{(0)}$$
-    <br>
+Create the household matrix of 
 
-    $$R^{(1)}=
-    \begin{equation}
-        \begin{bmatrix}
-        r_{11}^{(1)} & r_{12}^{(1)} & \cdots & \cdots\\
-        0 & r_{22}^{(1)} & \cdots & \cdots\\
-        0 & \vdots & \ddots & \vdots\\
-        0 & r_{n2}^{(1)} & \cdots & \ddots\\
-        \end{bmatrix}
-    \end{equation}$$
+$$H^{(1)}=I-{2\over{V^TV}}VV^T$$
+
+where the vector **v** was chosen as
+
+$$V=\bar{c}+\Vert c \Vert \bar{e_{1}}$$
+
+where
+
+$$e_{1}=
+\begin{equation}
+   \begin{bmatrix}
+   \pm 1\\  
+   0\\
+   0\\
+   \vdots\\
+   0\\
+   \end{bmatrix}
+\end{equation}$$
+
+$$e_{1}=+1 (a_{11}\ge 0)\\
+e_{1}=-1 (a_{11}< 0)$$
+<br>
+
+Update the next matrix Q and R as
+    
+$$Q^{(1)}=Q^{(0)}H^{(1)}\\
+R^{(1)}=H^{(1)}R^{(0)}$$
+<br>
+
+$$R^{(1)}=
+\begin{equation}
+   \begin{bmatrix}
+   r_{11}^{(1)} & r_{12}^{(1)} & \cdots & \cdots\\
+   0 & r_{22}^{(1)} & \cdots & \cdots\\
+   0 & \vdots & \ddots & \vdots\\
+   0 & r_{n2}^{(1)} & \cdots & \ddots\\
+   \end{bmatrix}
+\end{equation}$$
+   
    > Note:<br>
     Q is maintained as the orthogonal matrix<br>
     R is NOT triangular matrix yet
     <br>
 
-    **k=2**<br>
-    A vector c was chosen as the 2nd column of **R1**, but with **c**(1:1)=0
-    $$ c=
-    \begin{equation}
-        \begin{bmatrix}
-        0\\
-        r_{22}^{(1)}\\
-        \vdots\\
-        r_{n2}^{(1)}\\
-        \end{bmatrix}
-    \end{equation}$$
+**k=2**<br>
+A vector c was chosen as the 2nd column of **R1**, but with **c**(1:1)=0
 
-    Create the household matrix of 
-    $$H^{(2)}=I-{2\over{V^TV}}VV^T$$
-    where the vector **v** was chosen as
-    $$V=\bar{c}+\Vert c \Vert \bar{e_{2}}$$
-    where
-    $$e_{2}=
-    \begin{equation}
-        \begin{bmatrix}
-        0\\
-        \pm 1\\
-        0\\
-        \vdots\\
-        0\\
-        \end{bmatrix}
-    \end{equation}
-    \\e_{2}=+1 (r_{22}\ge 0)\\
-    e_{2}=-1 (r_{2}< 0)$$
-    <br>
-    Update the next matrix Q and R as
+$$ c=
+\begin{equation}
+   \begin{bmatrix}
+   0\\
+   r_{22}^{(1)}\\
+   \vdots\\
+   r_{n2}^{(1)}\\
+   \end{bmatrix}
+\end{equation}$$
+
+Create the household matrix of 
+$$H^{(2)}=I-{2\over{V^TV}}VV^T$$
+where the vector **v** was chosen as
+$$V=\bar{c}+\Vert c \Vert \bar{e_{2}}$$
+where
+
+$$e_{2}=
+\begin{equation}
+   \begin{bmatrix}
+   0\\
+   \pm 1\\
+   0\\
+   \vdots\\
+   0\\
+   \end{bmatrix}
+\end{equation}$$
+
+$$e_{2}=+1 (r_{22}\ge 0)\\
+e_{2}=-1 (r_{2}< 0)$$
+<br>
+Update the next matrix Q and R as
    
-    $$Q^{(2)}=Q^{(1)}H^{(2)}\\
-    R^{(2)}=H^{(2)}R^{(1)}$$
-    <br>
+$$Q^{(2)}=Q^{(1)}H^{(2)}\\
+R^{(2)}=H^{(2)}R^{(1)}$$
+<br>
 
-    $$R^{(1)}=
-    \begin{equation}
-        \begin{bmatrix}
-        r_{11}^{(1)} & r_{12}^{(1)} & \cdots & \cdots\\
-        0 & r_{22}^{(1)} & \cdots & \cdots\\
-        0 & \vdots & \ddots & \vdots\\
-        0 & 0 & \cdots & \ddots\\
-        \end{bmatrix}
-    \end{equation}$$
-   > Note:<br>
-    Q2 is maintained as the orthogonal matrix<br>
-    R2 is NOT triangular matrix yet<br>
+$$R^{(1)}=
+\begin{equation}
+   \begin{bmatrix}
+   r_{11}^{(1)} & r_{12}^{(1)} & \cdots & \cdots\\
+   0 & r_{22}^{(1)} & \cdots & \cdots\\
+   0 & \vdots & \ddots & \vdots\\
+   0 & 0 & \cdots & \ddots\\
+   \end{bmatrix}
+\end{equation}$$
+   
+> Note:<br>
+  Q2 is maintained as the orthogonal matrix<br>
+  R2 is NOT triangular matrix yet<br>
 
-    >After (n-1) steps<br>
-    **Q** is still orthogonal.<br>
-    **R** has become an upper triangular matrix.<br>
+>After (n-1) steps<br>
+ **Q** is still orthogonal.<br>
+ **R** has become an upper triangular matrix.<br>
 
 <hr>
 
@@ -297,89 +309,78 @@ $$V_1=
     1\\
     V_{12}\\
     V_{13}\\
-    \end{bmatrix}
-\end{equation}$$
-
-$$V_2=
-\begin{equation}
+    \end{bmatrix} V_2=
     \begin{bmatrix}
     V_{22}\\
     1\\
     V_{23}\\
-    \end{bmatrix}
-\end{equation}$$
-
-$$V_3=
-\begin{equation}
+    \end{bmatrix} V_3=
     \begin{bmatrix}
     V_{31}\\
     V_{32}\\
     1\\
-    \end{bmatrix}
+    \end{bmatrix}    
 \end{equation}$$
 
-For first eigenvector<br>
+
+For first eigenvector
+<br>
 
 $$\begin{equation}
-    \begin{bmatrix}
-    b_{11} & b_{12} & b_{13}\\
-    b_{21} & b_{22} & b_{23}\\
-    b_{31} & b_{32} & b_{33}\\
-    \end{bmatrix}
-\end{equation}
-\begin{equation}
-    \begin{bmatrix}
-    1\\
-    V_{12}\\
-    V_{13}\\
-    \end{bmatrix}
-\end{equation}=
-\begin{equation}
-    \begin{bmatrix}
-    0\\
-    0\\
-    0\\
-    \end{bmatrix}
+   \begin{bmatrix}
+   b_{11} & b_{12} & b_{13}\\
+   b_{21} & b_{22} & b_{23}\\
+   b_{31} & b_{32} & b_{33}\\
+   \end{bmatrix}
+   \begin{bmatrix}
+   1\\
+   V_{12}\\
+   V_{13}\\
+   \end{bmatrix}=
+   \begin{bmatrix}
+   0\\
+   0\\
+   0\\
+   \end{bmatrix}
 \end{equation}$$
+
+
 $$\downarrow$$
+
 $$\begin{equation}
-    \begin{bmatrix}
-    b_{22} & b_{23}\\
-    b_{32} & b_{33}\\
-    \end{bmatrix}
-\end{equation}
-\begin{equation}
-    \begin{bmatrix}
-    V_{12}\\
-    V_{13}\\
-    \end{bmatrix}
-\end{equation}=
-\begin{equation}
-    \begin{bmatrix}
-    -b_{21}\\
-    -b_{31}\\
-    \end{bmatrix}
+   \begin{bmatrix}
+   b_{22} & b_{23}\\
+   b_{32} & b_{33}\\
+   \end{bmatrix}
+   \begin{bmatrix}
+   V_{12}\\
+   V_{13}\\
+   \end{bmatrix}=
+   \begin{bmatrix}
+   -b_{21}\\
+   -b_{31}\\
+   \end{bmatrix}
 \end{equation}$$
+
+
 $$\downarrow$$
+
 $$
 \begin{equation}
-    \begin{bmatrix}
-    V_{12}\\
-    V_{13}\\
-    \end{bmatrix}
-\end{equation}=
-{\begin{equation}
-    \begin{bmatrix}
-    b_{22} & b_{23}\\
-    b_{32} & b_{33}\\
-    \end{bmatrix}
-\end{equation}}^{-1}
-\begin{equation}
-    \begin{bmatrix}
-    -b_{21}\\
-    -b_{31}\\
-    \end{bmatrix}
+   \begin{bmatrix}
+   V_{12}\\
+   V_{13}\\
+   \end{bmatrix}=
+   {\begin{bmatrix}
+   b_{22} & b_{23}\\
+   b_{32} & b_{33}\\
+   \end{bmatrix}}^{-1}
+   \begin{bmatrix}
+   -b_{21}\\
+   -b_{31}\\
+   \end{bmatrix}
 \end{equation}$$
+
 Then, normalize the eigenvector
 $$V_1={V_1\over\Vert V_1\Vert}$$
 
