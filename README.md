@@ -26,19 +26,29 @@ void qr_decomposition(const Matrix A, Matrix Q, Matrix R);
 $$A = Q R $$
 5. 다음과 같은 원리를 기반으로 작성되었다.<br>
 
-    Initially, matrix R and Q are set as <br>
-    $$R^0=A, Q^0=I$$
-    <br> **k=1** <br>
-    For step 1, a vector **c** was chosen as 1st column of **R** or **A**
-    $$ c=R_{i1}^{0}=R(:,1)=A(:,1)=
-    \begin{equation}
-        \begin{bmatrix}
-        a_{11}\\
-        a_{21}\\
-        \vdots\\
-        a_{n1}\\
-        \end{bmatrix}
-    \end{equation}$$
+Initially, matrix R and Q are set as <br>
+$$R^0=A, Q^0=I$$
+<br> **k=1** <br>
+For step 1, a vector **c** was chosen as 1st column of **R** or **A**
+
+$$V_1=
+\begin{equation}
+    \begin{bmatrix}
+    1\\
+    V_{12}\\
+    V_{13}\\
+    \end{bmatrix}
+\end{equation}$$
+
+$$c=R_{i1}^{0}=R(:,1)=A(:,1)=
+\begin{equation}
+    \begin{bmatrix}
+    a_{11}\\
+    a_{21}\\
+    \vdots\\
+    a_{n1}\\
+    \end{bmatrix}
+\end{equation}$$
 
     Create the household matrix of 
     $$H^{(1)}=I-{2\over{V^TV}}VV^T$$
@@ -277,9 +287,10 @@ void eigenvec(Matrix A, Matrix val);
 1. myMatrix.h 안에 선언되어 있다. 
 2. 다음과 같은 원리를 기반으로 작성되었다.<br>
 
-$$B=(A-\lambda I)\\(A-\lambda I)V=BV=0$$
+$$B=(A-\lambda I)(A-\lambda I)V=BV=0$$
 If A is 3x3 matrix
 eigenvectors are initially set as
+
 $$V_1=
 \begin{equation}
     \begin{bmatrix}
